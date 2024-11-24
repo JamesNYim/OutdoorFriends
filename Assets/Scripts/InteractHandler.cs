@@ -10,39 +10,25 @@ public class InteractHandler : MonoBehaviour
     private Collider itemCollider;
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E)) {
-            Ray interactRay = new Ray(playerTransform.position, playerTransform.forward);
-            if (Physics.Raycast(interactRay, out RaycastHit interactInfo, interactRange, interactLayer)) {
-                pickupBehavior(interactInfo);
-                Debug.Log(interactInfo.distance);
-            }
-        }
-        // Holding the item in our hand
-        if (itemRigidbody) {
-            itemRigidbody.position = handTransform.position;
-            itemRigidbody.rotation = handTransform.rotation;
-        }
-    }
-
-    void pickupBehavior(RaycastHit interactInfo) {
-        if (itemRigidbody) {
-            // This means that we are holding something already.
-            itemRigidbody.isKinematic = false;
-            itemCollider.enabled = true;
-
-            itemRigidbody = interactInfo.rigidbody;
-            itemCollider = interactInfo.collider;
-
-            itemRigidbody.isKinematic = true;
-            itemCollider.enabled = false;
-        }
-        else {
-            itemRigidbody = interactInfo.rigidbody;
-            itemCollider = interactInfo.collider;
-
-            itemRigidbody.isKinematic = true;
-            itemCollider.enabled = false;
-        }
         
     }
+    
+    void OnTriggerEnter(Collider collision) {
+       Debug.Log("Pick Up?: " + collision.gameObject.name);
+       pickupBehavior(collision); 
+    }
+    void OnTriggerExit(Collider  collision) {
+        Debug.Log("No longer colliding with: " + collision.gameObject.name);
+    }
+    void pickupBehavior(Collider collision) {
+        if (Input.GetKeyDown(KeyCode.E)) {
+            if (collision.gameObject.tag == "Player") {
+                Debug.Log("Picking up: " + collision.gameObject.transform.position.x);
+            }
+        }
+        
+   }
 }
+
+
+
