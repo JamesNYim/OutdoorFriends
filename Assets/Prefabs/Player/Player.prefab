@@ -133,9 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7caae5d1ef313bb44937c24911f56e29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactLayer:
-    serializedVersion: 2
-    m_Bits: 8
+  interactLayer: 3
   playerTransform: {fileID: 8121126191056672022}
   handTransform: {fileID: 2528566489516975609}
   interactRange: 5

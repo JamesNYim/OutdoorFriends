@@ -2,31 +2,44 @@ using UnityEngine;
 
 public class InteractHandler : MonoBehaviour
 {
-    [SerializeField] private LayerMask interactLayer;
+    [SerializeField] private int interactLayer;
     [SerializeField] private Transform playerTransform;
     [SerializeField] private Transform handTransform;
     [SerializeField] private float interactRange;
     private Rigidbody itemRigidbody;
     private Collider itemCollider;
+    private bool canInteract;
+
+    void Start() {
+        canInteract = false;
+    }
     void Update()
     {
+       if (Input.GetKeyDown(KeyCode.E) && canInteract) {
+           pickupBehavior();
+       } 
+       else {
         
+       }
     }
     
     void OnTriggerEnter(Collider collision) {
        Debug.Log("Pick Up?: " + collision.gameObject.name);
-       pickupBehavior(collision); 
+       itemCollider = collision;
+       if (itemCollider.gameObject.layer == interactLayer) {
+            canInteract = true;
+       }
+       else {
+        canInteract = false;
+
+       }
     }
     void OnTriggerExit(Collider  collision) {
-        Debug.Log("No longer colliding with: " + collision.gameObject.name);
+        canInteract = false;
     }
-    void pickupBehavior(Collider collision) {
-        if (Input.GetKeyDown(KeyCode.E)) {
-            if (collision.gameObject.tag == "Player") {
-                Debug.Log("Picking up: " + collision.gameObject.transform.position.x);
-            }
-        }
-        
+    void pickupBehavior() {
+         itemCollider.gameObject.transform.position = handTransform.position;
+         itemCollider.gameObject.transform.SetParent(handTransform, true);
    }
 }
 
