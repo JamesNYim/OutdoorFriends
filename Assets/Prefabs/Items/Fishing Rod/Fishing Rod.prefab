@@ -47,12 +47,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5f3dd36a78c1ae47892b43d4501550a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 8121126191056672022, guid: a7fdeeb0afcdc2d4caa6134eba3f8090, type: 3}
-  isEquipped: 0
-  isFishingAvailable: 0
-  isCasted: 0
-  isReeling: 0
-  bobber: {fileID: 919132149155446097, guid: 12ec3d6967a75174e96a15c27f408701, type: 3}
+  bobberPrefab: {fileID: 919132149155446097, guid: 12ec3d6967a75174e96a15c27f408701, type: 3}
+  castPoint: {fileID: 9162145755546039255}
+  maxCastDistance: 20
+  chargeRate: 10
+  reelSpeed: 5
 --- !u!95 &8577415053116892056
 Animator:
   serializedVersion: 7

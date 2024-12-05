@@ -6,7 +6,6 @@ public class InteractHandler : MonoBehaviour
     [SerializeField] private Transform playerTransform;
     [SerializeField] private Transform handTransform;
     [SerializeField] private float interactRange;
-    private Rigidbody itemRigidbody;
     private Collider itemCollider;
     private bool canInteract;
 
