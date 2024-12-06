@@ -38,6 +38,7 @@ public class InteractHandler : MonoBehaviour
     }
     void pickupBehavior() {
          itemCollider.gameObject.transform.position = handTransform.position;
+         itemCollider.gameObject.transform.rotation = handTransform.rotation;
          itemCollider.gameObject.transform.SetParent(handTransform, true);
    }
 }
