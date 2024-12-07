@@ -49,9 +49,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bobberPrefab: {fileID: 919132149155446097, guid: 12ec3d6967a75174e96a15c27f408701, type: 3}
   castPoint: {fileID: 9162145755546039255}
+  castMarkerPrefab: {fileID: 1414029203567400456, guid: e23cd31f1acf2284ca089f9c927d17c3, type: 3}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
   maxCastDistance: 20
   chargeRate: 10
   reelSpeed: 5
+  currentState: 0
 --- !u!95 &8577415053116892056
 Animator:
   serializedVersion: 7
